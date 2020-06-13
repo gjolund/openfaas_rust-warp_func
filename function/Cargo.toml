@@ -1,0 +1,9 @@
+[package]
+name = "handler"
+version = "0.1.0"
+authors = ["Austin Rivas <austinrivas@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+warp = "0.2"
+serde_json = "1.0"
