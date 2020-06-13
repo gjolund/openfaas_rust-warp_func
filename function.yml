@@ -3,10 +3,10 @@ provider:
   name: openfaas
   gateway: https://openfaas-ingress-austinrivas.cloud.okteto.net/
 functions:
-  rust-hello:
+  rust-warp-hello:
     lang: rust-warp
     handler: ./function
-    image: austinrivas/rust-hello:latest
+    image: austinrivas/rust-warp-hello:latest
     limits:
       memory: 40Mi
       cpu: 100m
