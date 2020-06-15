@@ -1,8 +1,8 @@
-# The name tells Okteto to replace the function named 'hello' with the dev environment
+# The name tells Okteto to replace the function named 'rust-warp-hello' with the dev environment
 name: rust-warp-hello       
 labels:
   faas_function: rust-warp-hello
-image: austinrivas/rust-warp-okteto:latest
+image: austinrivas/rust-warp-okteto:stable
 command:
   - bash
 workdir: /home/app
@@ -18,16 +18,11 @@ securityContext:
   runAsUser:  12000
   runAsGroup: 12000
   fsGroup:    12000
-  capabilities:
-    add:
-    # enables us to run the debugger inside the pod
-    - SYS_PTRACE
 environment:
   # overrides the one set by openfaas
   - fprocess=cargo run --manifest-path ./main/Cargo.toml
 forward:
   - 3000:3000
-  - 9229:9229
 resources:
   requests:
     memory: "20Mi"
