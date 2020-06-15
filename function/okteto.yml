@@ -5,14 +5,14 @@ labels:
 image: austinrivas/rust-warp-okteto:stable
 command:
   - bash
-workdir: /home/app
-mountpath: /home/app/function
+workdir: /home/rust
+mountpath: /home/rust/function
 persistentVolume:
   enabled: true
 volumes:
   # This makes the rust cache persistent across development environments
-  - /home/app/main/target
-  - /home/app/function/target
+  - /home/rust/main/target
+  - /home/rust/function/target
 securityContext:
   # the user and group that OpenFaaS functions run as
   runAsUser:  12000
