@@ -2,14 +2,14 @@ use serde::{Deserialize, Serialize};
 use warp::{filters::BoxedFilter, Filter, Reply};
 
 /// # Response Struct
-/// 
+///
 /// `Response` implements `warp::Reply` and is serializable into JSON.
 /// The purpose of the Struct is to act as a container for the repsonse body.
-/// 
+///
 /// It takes a user agent as a parameter and uses it to define a private `message` property.
-/// 
+///
 /// `Response`'s implementation of `warp::Reply` allows `Response` to be called in a `warp` filter's `map` method.
-/// 
+///
 /// `Response` will be serialized into JSON string and sent to the client.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Response {
