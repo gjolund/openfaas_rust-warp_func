@@ -41,7 +41,7 @@ faas up -f function.yml --gateway $GATEWAY_URL
 
 ## Remote Dev
 
-This function includes an `okteto.yml` function to facilitate remote dev and debugging.
+This function includes an [`okteto.yml`](function/okteto.yml) function to facilitate remote dev and debugging.
 
 ```bash
 cd function
@@ -67,10 +67,10 @@ This function is based on the OpenFaaS [rust-warp-template](https://github.com/a
 
 This template provides a thin wrapper around the [Rust Warp Server](https://github.com/seanmonstar/warp).
 
-## [Function Handler](https://github.com/austinrivas/openfaas_rust-warp_func/blob/master/function/src/lib.rs)
+## [Function Handler](function/src/lib.rs)
 
 ## Extras
 
-This repo also contains an [Okteto Remote Development Configuration](https://github.com/austinrivas/openfaas_rust-warp_func/blob/master/function/okteto.yml) for use on the [Okteto Platform](https://okteto.com/).
+This repo also contains an [Okteto Remote Development Configuration](function/okteto.yml) for use on the [Okteto Platform](https://okteto.com/).
 
-A [github action](https://github.com/austinrivas/openfaas_rust-warp_func/blob/master/.github/workflows/test-deno.yml) is included that will trigger on pull request. This action runs the rust tests / lint / check / format.
+A [github action](.github/workflows/test-deno.yml) is included that will trigger on pull request. This action runs the rust tests / lint / check / format.
