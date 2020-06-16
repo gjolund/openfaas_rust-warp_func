@@ -16,8 +16,22 @@ faas new <name> --lang rust-warp
 ```
 
 ## Testing
-  
+
+```sh
+cargo test --manifest-path ./function/Cargo.toml
+```
+
+### Format
+
+```sh
+cargo fmt --manifest-path ./function/Cargo.toml
+```
+
 ### Linting
+
+```sh
+cargo clippy --manifest-path ./function/Cargo.toml
+```
 
 ## Deployment
 
@@ -25,11 +39,9 @@ faas new <name> --lang rust-warp
 faas up -f function.yml --gateway $GATEWAY_URL
 ```
 
-## Remote Debugging
+## Remote Dev
 
 This function includes an `okteto.yml` function to facilitate remote dev and debugging.
-
-To launch to remote debugger you must start the debug process in oketeto.
 
 ```bash
 cd function
@@ -43,7 +55,11 @@ okteto up
 okteto> fwatchdog
 ```
 
-When you are done debugging you should `exit` the okteto shell and run `okteto down` to restore the OpenFaaS function context.
+This will compile the function in the remote dev environment. Rust is fast code that compiles slow, so patience is a virtue here. Okteto will cache the build so that later compilations will be much faster.
+
+Okteto will syncronize local changes with the remote environment.
+
+Currently remote debugging is not implemented, however it is a future goal of this project.
 
 ## [Template](https://github.com/austinrivas/rust-warp-template)
 
@@ -57,4 +73,4 @@ This template provides a thin wrapper around the [Rust Warp Server](https://gith
 
 This repo also contains an [Okteto Remote Development Configuration](https://github.com/austinrivas/openfaas_rust-warp_func/blob/master/function/okteto.yml) for use on the [Okteto Platform](https://okteto.com/).
 
-A [Test github action](https://github.com/austinrivas/openfaas_rust-warp_func/blob/master/.github/workflows/test-deno.yml) is included that will trigger on pull request. This action runs the rust tests.
+A [github action](https://github.com/austinrivas/openfaas_rust-warp_func/blob/master/.github/workflows/test-deno.yml) is included that will trigger on pull request. This action runs the rust tests / lint / check / format.
