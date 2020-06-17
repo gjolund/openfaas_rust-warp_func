@@ -1,7 +1,7 @@
-OpenFaaS Deno HTTP function
+OpenFaaS Rust Warp HTTP function
 =============================================
 
-An OpenFaaS of-watchdog function written for Deno.
+An OpenFaaS of-watchdog function written for Rust Warp server.
 
 ## Installation
 
@@ -73,4 +73,4 @@ This template provides a thin wrapper around the [Rust Warp Server](https://gith
 
 This repo also contains an [Okteto Remote Development Configuration](function/okteto.yml) for use on the [Okteto Platform](https://okteto.com/).
 
-A [github action](.github/workflows/test-deno.yml) is included that will trigger on pull request. This action runs the rust tests / lint / check / format.
+A [github action](.github/workflows/check-lint-test-format.yml) is included that will trigger on pull request. This action runs the rust tests / lint / check / format.
